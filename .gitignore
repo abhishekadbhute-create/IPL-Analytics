@@ -1,0 +1,31 @@
+# Environment & Secrets
+.env
+*.env
+*.key
+*.pem
+
+# Python Virtual Environments & Caches
+venv/
+env/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Temporary QA Scratch & Test Scripts
+run_qa_*.py
+run_full_qa_*.py
+test_user_queries.py
+generate_graphs_*.py
+qa_validation.py
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS System Files
+.DS_Store
+Thumbs.db
