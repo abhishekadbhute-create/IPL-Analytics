@@ -34,35 +34,45 @@ def team_win_percentage(team):
   return {"win_percentage": round(percentage, 3)}
 
 #team_highest_score(team)
-def team_highest_score(team,opponent=None):
+def team_highest_score(team, opponent=None, venue=None):
 
-    scores=deliveries.groupby(
-        ["match_id","innings","batting_team"]
+    scores = deliveries.groupby(
+        ["match_id", "innings", "batting_team"]
     )["total_runs"].sum().reset_index(name="score")
 
-    team_df=scores[scores["batting_team"]==team]
+    team_df = scores[scores["batting_team"] == team]
 
-    if opponent!=None:
-        ids=matches[
-            ((matches["team1"]==team)&(matches["team2"]==opponent))|
-            ((matches["team1"]==opponent)&(matches["team2"]==team))
+    if opponent is not None:
+        ids = matches[
+            ((matches["team1"] == team) & (matches["team2"] == opponent)) |
+            ((matches["team1"] == opponent) & (matches["team2"] == team))
         ]["match_id"]
 
-        team_df=team_df[team_df["match_id"].isin(ids)]
+        team_df = team_df[team_df["match_id"].isin(ids)]
 
-    highest=team_df.loc[team_df["score"].idxmax()]
+    if venue is not None:
+        v_matches = matches[matches["venue"].str.contains(venue, case=False, na=False)]
+        if not v_matches.empty:
+            v_ids = v_matches["match_id"]
+            team_df = team_df[team_df["match_id"].isin(v_ids)]
 
-    match=matches[matches["match_id"]==highest["match_id"]].iloc[0]
+    if team_df.empty:
+        return {"score": 0, "opponent": "None", "season": 0, "venue": str(venue or "None"), "winner": "None"}
 
-    opp=match["team2"] if match["team1"]==team else match["team1"]
+    highest = team_df.loc[team_df["score"].idxmax()]
 
-    return{
-        "score":int(highest["score"]),
-        "opponent":opp,
-        "season":int(match["season"]),
-        "venue":match["venue"],
-        "winner":match["winner"]
+    match = matches[matches["match_id"] == highest["match_id"]].iloc[0]
+
+    opp = match["team2"] if match["team1"] == team else match["team1"]
+
+    return {
+        "score": int(highest["score"]),
+        "opponent": opp,
+        "season": int(match["season"]),
+        "venue": match["venue"],
+        "winner": match["winner"]
     }
+
 
 #team_lowest_score(team)
 def team_lowest_score(team,opponent=None):
@@ -2263,4 +2273,54 @@ def player_strike_rate(player):
     runs = p_df['batsman_runs'].sum()
     balls = p_df[~p_df['extra_type'].isin(['wides'])].shape[0]
     sr = round(float(runs / balls * 100), 2) if balls > 0 else 0.0
-    return {"player": player, "strike_rate": sr}
+    return {"player": player, "strike_rate": sr}
+
+def team_highest_score_at_venue(team, venue):
+    """Q45: Highest score by team at a specific venue"""
+    return team_highest_score(team, venue=venue)
+
+def season_champion(season):
+    """Q46: Champion team of a specific season"""
+    s_matches = matches[matches['season'] == season]
+    if s_matches.empty:
+        return "Unknown"
+    last_match = s_matches.sort_values(by=['date', 'match_number']).iloc[-1]
+    return last_match['winner']
+
+def season_orange_cap(season):
+    """Q47: Orange Cap winner of a specific season"""
+    merged = deliveries.merge(matches[['match_id', 'season']], on='match_id')
+    s_df = merged[merged['season'] == season]
+    if s_df.empty:
+        return "Unknown"
+    top_scorer = s_df.groupby('striker')['batsman_runs'].sum().idxmax()
+    return top_scorer
+
+def batsman_season_highest_score(player, season=None):
+    """Q48: Highest score by a player in a single season or specific season"""
+    merged = deliveries.merge(matches[['match_id', 'season']], on='match_id')
+    p_df = merged[merged['striker'] == player]
+    if p_df.empty:
+        return {"player": player, "season": season or 0, "highest_score": 0}
+    if season is not None:
+        p_df = p_df[p_df['season'] == season]
+        highest = p_df.groupby(['match_id', 'innings'])['batsman_runs'].sum().max()
+        if pd.isna(highest): highest = 0
+        return {"player": player, "season": season, "highest_score": int(highest)}
+    else:
+        scores_by_season = p_df.groupby(['season', 'match_id', 'innings'])['batsman_runs'].sum().reset_index()
+        max_idx = scores_by_season['batsman_runs'].idxmax()
+        row = scores_by_season.loc[max_idx]
+        return {"player": player, "season": int(row['season']), "highest_score": int(row['batsman_runs'])}
+
+def bowler_economy_in_powerplay(bowler):
+    """Q57: Bowler economy rate in powerplay overs (1-6)"""
+    d_df = deliveries[(deliveries['bowler'] == bowler) & (deliveries['over'] <= 6)]
+    if d_df.empty:
+        return 0.0
+    runs = d_df['total_runs'].sum()
+    legal_balls = d_df[~d_df['extra_type'].isin(['wides', 'noballs'])].shape[0]
+    overs = legal_balls / 6
+    eco = round(float(runs / overs), 2) if overs > 0 else 0.0
+    return eco
+
