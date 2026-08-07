@@ -11,6 +11,7 @@ A full-stack interactive Indian Premier League (IPL) data analytics web applicat
 - **⚡ Dual Routing Engine**: Dynamic Gemini AI JSON tool calling with robust rule-based fallback routing for zero downtime and instant answers.
 - **🎯 Team & Player Name Resolution**: Built-in support for team aliases (`CSK`, `MI`, `RCB`, `Delhi Daredevils` ↔ `Delhi Capitals`, `Punjab Kings` ↔ `Kings XI Punjab`) and player misspellings.
 - **📈 Rich Visual Dashboards**: Interactive Plotly.js charts, stat cards, metric grids, and data tables.
+- WEB PAGE LINK -[Live Demo](ipl-analytics-abhi.vercel.app)  
 
 ---
 
