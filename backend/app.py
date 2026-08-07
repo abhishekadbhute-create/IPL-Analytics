@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+import os
+from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
 from config import Config
 
@@ -12,7 +13,8 @@ from routes.match_routes import match_bp
 from routes.compare_routes import compare_bp
 from routes.search_routes import search_bp
 
-app = Flask(__name__)
+frontend_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend'))
+app = Flask(__name__, static_folder=frontend_folder, static_url_path='')
 app.config.from_object(Config)
 
 # Enable CORS for all routes
@@ -30,7 +32,13 @@ app.register_blueprint(search_bp, url_prefix='/api')
 
 @app.route('/', methods=['GET'])
 def home():
-    return jsonify({"message": "Welcome to IPL Analytics API"})
+    return send_from_directory(frontend_folder, 'index.html')
+
+@app.route('/<path:path>')
+def static_proxy(path):
+    if os.path.exists(os.path.join(frontend_folder, path)):
+        return send_from_directory(frontend_folder, path)
+    return send_from_directory(frontend_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=Config.DEBUG, port=Config.PORT)
