@@ -606,6 +606,110 @@ h1, h2, h3, h4, h5 {
 
 .footer-sub { text-align: center; font-size: 12px; color: #888888; margin-top: 20px; }
 
+/* Cool Graph & Interactive Dashboard Styles */
+.view-tabs-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.view-tab-btn {
+    background: var(--bg-secondary);
+    color: var(--text-body);
+    border: 1px solid var(--border-color);
+    padding: 8px 18px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-tab-btn:hover {
+    background: var(--primary-orange-light);
+    color: var(--primary-orange);
+}
+
+.view-tab-btn.active {
+    background: var(--primary-orange);
+    color: #ffffff;
+    border-color: var(--primary-orange);
+    box-shadow: 0 4px 14px rgba(255, 90, 31, 0.35);
+}
+
+.chart-card-box {
+    grid-column: span 12;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-card-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff5a1f, #8b5cf6, #3b82f6);
+}
+
+.chart-container {
+    width: 100%;
+    min-height: 380px;
+}
+
+.stat-card-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card-box:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-orange);
+    border-color: var(--primary-orange);
+}
+
+.stat-card-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.stat-card-val {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--primary-orange);
+}
+
+.cool-badge {
+    background: var(--primary-orange-light);
+    color: var(--primary-orange);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    display: inline-block;
+    margin-top: 6px;
+}
+
 @media (max-width: 768px) {
     .hero-title { font-size: 36px; }
     .search-box-900 { height: 60px; padding: 6px 12px; }
