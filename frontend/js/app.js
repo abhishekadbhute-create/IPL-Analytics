@@ -2,7 +2,7 @@
 // GLOBAL APP UTILITIES & UI CONTROLLERS
 // ---------------------------------------------------------
 
-const API_BASE = window.location.origin.includes('5000') ? '' : 'http://127.0.0.1:5000';
+const API_BASE = 'https://ipl-analytics-ca1e.onrender.com';
 
 function toggleTheme() {
     const html = document.documentElement;

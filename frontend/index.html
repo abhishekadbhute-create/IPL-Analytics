@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPL Analytics — IIT Bombay e-Yantra Style AI Engine</title>
-    
+
     <!-- Google Fonts: Space Grotesk, Inter, Space Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -65,9 +68,15 @@
             --border-color: #332f2b;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: var(--font-body);
@@ -82,14 +91,18 @@
             position: fixed;
             inset: 0;
             z-index: -1;
-            background-image: 
-                linear-gradient(to right, rgba(0,0,0,0.035) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0,0,0,0.035) 1px, transparent 1px);
+            background-image:
+                linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
             background-size: 32px 32px;
             pointer-events: none;
         }
 
-        h1, h2, h3, h4, h5 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
             font-family: var(--font-heading);
             color: var(--text-heading);
             letter-spacing: -0.02em;
@@ -187,7 +200,9 @@
             cursor: pointer;
         }
 
-        .nav-item-link:hover { color: var(--primary-orange); }
+        .nav-item-link:hover {
+            color: var(--primary-orange);
+        }
 
         .btn-register-orange {
             background: var(--primary-orange);
@@ -204,7 +219,9 @@
             transition: background 0.2s ease;
         }
 
-        .btn-register-orange:hover { background: var(--primary-orange-hover); }
+        .btn-register-orange:hover {
+            background: var(--primary-orange-hover);
+        }
 
         .sub-navbar-strip {
             background: var(--bg-secondary);
@@ -231,7 +248,9 @@
             cursor: pointer;
         }
 
-        .sub-nav-item:hover { color: var(--primary-orange); }
+        .sub-nav-item:hover {
+            color: var(--primary-orange);
+        }
 
         .page-container {
             max-width: 1250px;
@@ -314,7 +333,9 @@
             transition: all 0.2s ease;
         }
 
-        .btn-analyze:hover { background: var(--primary-orange-hover); }
+        .btn-analyze:hover {
+            background: var(--primary-orange-hover);
+        }
 
         .chips-container {
             display: flex;
@@ -370,7 +391,9 @@
             line-height: 1;
         }
 
-        .stat-num-giant span { color: var(--primary-orange); }
+        .stat-num-giant span {
+            color: var(--primary-orange);
+        }
 
         .stat-label-sub {
             font-family: var(--font-mono);
@@ -502,7 +525,9 @@
             margin: 20px auto;
         }
 
-        .loading-box.hidden { display: none; }
+        .loading-box.hidden {
+            display: none;
+        }
 
         .progress-track {
             width: 100%;
@@ -520,7 +545,9 @@
             transition: width 0.3s ease;
         }
 
-        .results-wrapper { width: 100%; }
+        .results-wrapper {
+            width: 100%;
+        }
 
         .results-grid {
             display: grid;
@@ -603,19 +630,47 @@
             border-bottom: 1px solid var(--border-dark);
         }
 
-        .footer-flex a { color: #cccccc; text-decoration: none; margin-left: 20px; font-size: 14px; }
-        .footer-flex a:hover { color: var(--primary-orange); }
+        .footer-flex a {
+            color: #cccccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
 
-        .footer-sub { text-align: center; font-size: 12px; color: #888888; margin-top: 20px; }
+        .footer-flex a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-sub {
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+            margin-top: 20px;
+        }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: 36px; }
-            .search-box-900 { height: 60px; padding: 6px 12px; }
-            .btn-analyze { height: 44px; padding: 0 16px; font-size: 14px; }
-            .stat-card-box { grid-column: span 12; }
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .search-box-900 {
+                height: 60px;
+                padding: 6px 12px;
+            }
+
+            .btn-analyze {
+                height: 44px;
+                padding: 0 16px;
+                font-size: 14px;
+            }
+
+            .stat-card-box {
+                grid-column: span 12;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Engineering Grid Pattern Background -->
     <div class="eyantra-grid-bg"></div>
@@ -624,11 +679,13 @@
     <header class="top-navbar">
         <div class="nav-primary">
             <a href="#" class="eyantra-brand">
-                <span class="brand-logo-badge" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; background: var(--primary-orange); color: #ffffff; padding: 0;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="9"/>
-                        <path d="M12 3a9 9 0 0 1 0 18"/>
-                        <path d="M8 15l2.5-2.5 3 3L17 11"/>
+                <span class="brand-logo-badge"
+                    style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; background: var(--primary-orange); color: #ffffff; padding: 0;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 3a9 9 0 0 1 0 18" />
+                        <path d="M8 15l2.5-2.5 3 3L17 11" />
                     </svg>
                 </span>
                 <div class="brand-titles">
@@ -641,8 +698,10 @@
                 <a href="#hero" class="nav-item-link">About</a>
                 <a href="#explore" class="nav-item-link">Competition</a>
                 <a href="#trending" class="nav-item-link">Resources</a>
-                <button id="theme-btn" onclick="toggleTheme()" class="nav-item-link" style="background:none; border:none; cursor:pointer;">🌓 Theme</button>
-                <a href="https://github.com/abhishekadbhute-create/IPL-Analytics" target="_blank" class="btn-register-orange">
+                <button id="theme-btn" onclick="toggleTheme()" class="nav-item-link"
+                    style="background:none; border:none; cursor:pointer;">🌓 Theme</button>
+                <a href="https://github.com/abhishekadbhute-create/IPL-Analytics" target="_blank"
+                    class="btn-register-orange">
                     GitHub Repo &rarr;
                 </a>
             </div>
@@ -657,33 +716,37 @@
                 <span>|</span>
                 <span class="sub-nav-item" onclick="triggerPreset('top wicket takers')">Bowling Legends</span>
                 <span>|</span>
-                <span class="sub-nav-item" onclick="triggerPreset('top teams by win percentage')">Franchise Win Ratios</span>
+                <span class="sub-nav-item" onclick="triggerPreset('top teams by win percentage')">Franchise Win
+                    Ratios</span>
                 <span>|</span>
                 <span class="sub-nav-item" onclick="triggerPreset('M. Chinnaswamy Stadium stats')">Venue Records</span>
                 <span>|</span>
-                <span class="sub-nav-item" onclick="triggerPreset('Highest successful chase in IPL')">Historical Chases</span>
+                <span class="sub-nav-item" onclick="triggerPreset('Highest successful chase in IPL')">Historical
+                    Chases</span>
             </div>
         </div>
     </header>
 
     <!-- Main Container -->
     <div class="page-container">
-        
+
         <!-- Hero Section (Screenshot 2 Inspiration) -->
         <section class="hero-section" id="hero">
-            
+
             <h1 class="hero-title">
                 Ask Any <span class="orange-underline">IPL</span> Question.
             </h1>
-            
+
             <p class="hero-subtitle">
-                Search across every IPL season, player, team, venue, match and ball-by-ball statistics using instant AI-powered analytics.
+                Search across every IPL season, player, team, venue, match and ball-by-ball statistics using instant
+                AI-powered analytics.
             </p>
 
             <!-- 900px Search Box -->
             <div class="search-box-900">
                 <span style="font-size: 20px; color: var(--text-muted);">🔍</span>
-                <input type="text" id="nlp-search-input" class="search-input-field" placeholder="Who scored the most runs in IPL history?" autocomplete="off">
+                <input type="text" id="nlp-search-input" class="search-input-field"
+                    placeholder="Who scored the most runs in IPL history?" autocomplete="off">
                 <button id="nlp-search-btn" class="btn-analyze">
                     <span>Analyze</span> &rarr;
                 </button>
@@ -695,9 +758,11 @@
                 <button class="chip-btn" onclick="triggerPreset('Most Wickets')">🎯 Most Wickets</button>
                 <button class="chip-btn" onclick="triggerPreset('Orange Cap')">👑 Orange Cap</button>
                 <button class="chip-btn" onclick="triggerPreset('Purple Cap')">🧢 Purple Cap</button>
-                <button class="chip-btn" onclick="triggerPreset('Compare Virat Kohli vs Rohit Sharma')">🔄 Player Comparison</button>
+                <button class="chip-btn" onclick="triggerPreset('Compare Virat Kohli vs Rohit Sharma')">🔄 Player
+                    Comparison</button>
                 <button class="chip-btn" onclick="triggerPreset('Top teams by win percentage')">📊 Winning %</button>
-                <button class="chip-btn" onclick="triggerPreset('Jasprit Bumrah economy rate in death overs')">⚡ Death Overs</button>
+                <button class="chip-btn" onclick="triggerPreset('Jasprit Bumrah economy rate in death overs')">⚡ Death
+                    Overs</button>
                 <button class="chip-btn" onclick="triggerPreset('Highest Chase in IPL')">🔥 Highest Chase</button>
             </div>
         </section>
@@ -777,7 +842,8 @@
         <!-- Step-by-Step Loading Screen Overlay -->
         <div class="loading-box hidden" id="loading-box">
             <h3 id="load-step-title" style="color: var(--primary-orange);">Analyzing IPL database...</h3>
-            <p id="load-step-sub" style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Filtering deliveries</p>
+            <p id="load-step-sub" style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Filtering
+                deliveries</p>
             <div class="progress-track">
                 <div class="progress-fill" id="load-progress-fill"></div>
             </div>
@@ -789,7 +855,8 @@
                 <!-- Default Explore Cards (Screenshot 2 & 4 Inspiration) -->
                 <div id="explore" class="timeline-section-title" style="margin-top: 20px;">
                     <span class="sub-tag">— EXPLORE CATEGORIES —</span>
-                    <h2 style="font-size: 32px;">Which <span class="orange-underline">category</span> is calling you?</h2>
+                    <h2 style="font-size: 32px;">Which <span class="orange-underline">category</span> is calling you?
+                    </h2>
                     <p style="color: var(--text-muted);">Pick the domain that matches your research goal today.</p>
                 </div>
 
@@ -843,7 +910,7 @@
 
     <!-- INLINE APPLICATION LOGIC FOR ZERO-FAILURE EXECUTION -->
     <script>
-        const API_BASE = window.location.origin.includes('5000') ? '' : 'http://127.0.0.1:5000';
+        const API_BASE = 'https://ipl-analytics-ca1e.onrender.com';
         const viewContainer = document.getElementById('view-container');
         const loadingBox = document.getElementById('loading-box');
         const loadStepTitle = document.getElementById('load-step-title');
@@ -1007,4 +1074,5 @@
         }
     </script>
 </body>
+
 </html>
