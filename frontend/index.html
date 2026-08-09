@@ -87,15 +87,81 @@
             overflow-x: hidden;
         }
 
+        /* ==========================================================================
+           PREMIUM IPL STADIUM & AI DATA ANALYTICS CANVAS BACKGROUND SYSTEM
+           ========================================================================== */
+
+        @keyframes stadiumGlowPulse {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.85; }
+            50% { transform: translate(-20px, 15px) scale(1.08); opacity: 1; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.85; }
+        }
+
+        @keyframes stadiumGlowPulseTwo {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+            50% { transform: translate(25px, -20px) scale(1.1); opacity: 1; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+        }
+
         .eyantra-grid-bg {
             position: fixed;
             inset: 0;
             z-index: -1;
-            background-image:
-                linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
-            background-size: 32px 32px;
             pointer-events: none;
+            overflow: hidden;
+            background-color: var(--bg-canvas);
+        }
+
+        /* Layer 1: Glowing Ambient Stadium Orbs & Floodlight Arena */
+        .eyantra-grid-bg::before {
+            content: "";
+            position: absolute;
+            inset: -100px;
+            background-image:
+                /* IPL Blaze Orange Arena Spotlight */
+                radial-gradient(circle 650px at 82% 12%, rgba(255, 90, 31, 0.15), transparent 70%),
+                /* Golden Trophy Floodlight Aura */
+                radial-gradient(circle 550px at 18% 18%, rgba(255, 184, 0, 0.12), transparent 65%),
+                /* Stadium Outfield Emerald Turf Glow */
+                radial-gradient(circle 750px at 50% 85%, rgba(16, 185, 129, 0.08), transparent 70%),
+                /* Stadium Night Sky Glow (Center spotlight) */
+                radial-gradient(ellipse 90% 70% at 50% 30%, rgba(99, 102, 241, 0.04), transparent 75%);
+            animation: stadiumGlowPulse 18s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        /* Layer 2: High-Definition Cricket & Technical Grid Pattern */
+        .eyantra-grid-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                /* Premium Cricket Pitch, Seam Stitch & Data Grid Vector Pattern */
+                url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Technical Grid --%3E%3Cpath d='M 180 0 L 0 0 0 180' fill='none' stroke='rgba(0,0,0,0.06)' stroke-width='1.2'/%3E%3Cpath d='M 45 0 L 45 180 M 90 0 L 90 180 M 135 0 L 135 180' fill='none' stroke='rgba(0,0,0,0.025)' stroke-width='1'/%3E%3Cpath d='M 0 45 L 180 45 M 0 90 L 180 90 M 0 135 L 180 135' fill='none' stroke='rgba(0,0,0,0.025)' stroke-width='1'/%3E%3C!-- Grid Node Crosshairs (+) --%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.25)' stroke-width='1.2' transform='translate(0,0)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.25)' stroke-width='1.2' transform='translate(180,0)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.25)' stroke-width='1.2' transform='translate(0,180)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.25)' stroke-width='1.2' transform='translate(180,180)'/%3E%3C!-- Cricket 22-Yard Pitch Box %26 Crease Lines --%3E%3Crect x='50' y='20' width='80' height='140' rx='4' fill='rgba(255,90,31,0.015)' stroke='rgba(0,0,0,0.07)' stroke-width='1.2'/%3E%3Cline x1='50' y1='45' x2='130' y2='45' stroke='rgba(255,90,31,0.3)' stroke-width='1.5'/%3E%3Cline x1='50' y1='135' x2='130' y2='135' stroke='rgba(255,90,31,0.3)' stroke-width='1.5'/%3E%3Cline x1='65' y1='35' x2='65' y2='45' stroke='rgba(0,0,0,0.08)' stroke-width='1.2'/%3E%3Cline x1='115' y1='35' x2='115' y2='45' stroke='rgba(0,0,0,0.08)' stroke-width='1.2'/%3E%3Cline x1='65' y1='135' x2='65' y2='145' stroke='rgba(0,0,0,0.08)' stroke-width='1.2'/%3E%3Cline x1='115' y1='135' x2='115' y2='145' stroke='rgba(0,0,0,0.08)' stroke-width='1.2'/%3E%3C!-- Stumps Representation --%3E%3Ccircle cx='80' cy='38' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='90' cy='38' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='100' cy='38' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='80' cy='142' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='90' cy='142' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='100' cy='142' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3C!-- Dynamic Cricket Ball Seam Curved Arc --%3E%3Cpath d='M 0 180 Q 90 90 180 0' fill='none' stroke='rgba(255, 90, 31, 0.18)' stroke-width='2' stroke-dasharray='5,4'/%3E%3C/svg%3E"),
+                /* Vignette depth */
+                radial-gradient(ellipse 85% 85% at 50% 30%, transparent 40%, rgba(245, 243, 238, 0.6) 100%);
+            background-size: 180px 180px, 100% 100%;
+            pointer-events: none;
+        }
+
+        /* Dark Theme Premium Stadium Canvas */
+        [data-theme="dark"] .eyantra-grid-bg::before {
+            background-image:
+                /* IPL Blaze Orange Arena Glow */
+                radial-gradient(circle 650px at 82% 12%, rgba(255, 90, 31, 0.22), transparent 70%),
+                /* Golden Floodlight Aura */
+                radial-gradient(circle 550px at 18% 18%, rgba(255, 184, 0, 0.16), transparent 65%),
+                /* Stadium Outfield Emerald Turf Glow */
+                radial-gradient(circle 750px at 50% 85%, rgba(16, 185, 129, 0.14), transparent 70%),
+                /* Deep Electric Cyber Glow */
+                radial-gradient(ellipse 90% 70% at 50% 30%, rgba(99, 102, 241, 0.08), transparent 75%);
+            animation: stadiumGlowPulseTwo 20s ease-in-out infinite alternate;
+        }
+
+        [data-theme="dark"] .eyantra-grid-bg::after {
+            background-image:
+                url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Technical Grid --%3E%3Cpath d='M 180 0 L 0 0 0 180' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1.2'/%3E%3Cpath d='M 45 0 L 45 180 M 90 0 L 90 180 M 135 0 L 135 180' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1'/%3E%3Cpath d='M 0 45 L 180 45 M 0 90 L 180 90 M 0 135 L 180 135' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1'/%3E%3C!-- Grid Node Crosshairs (+) --%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.45)' stroke-width='1.2' transform='translate(0,0)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.45)' stroke-width='1.2' transform='translate(180,0)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.45)' stroke-width='1.2' transform='translate(0,180)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.45)' stroke-width='1.2' transform='translate(180,180)'/%3E%3C!-- Cricket 22-Yard Pitch Box %26 Crease Lines --%3E%3Crect x='50' y='20' width='80' height='140' rx='4' fill='rgba(255,90,31,0.03)' stroke='rgba(255,255,255,0.1)' stroke-width='1.2'/%3E%3Cline x1='50' y1='45' x2='130' y2='45' stroke='rgba(255,90,31,0.5)' stroke-width='1.5'/%3E%3Cline x1='50' y1='135' x2='130' y2='135' stroke='rgba(255,90,31,0.5)' stroke-width='1.5'/%3E%3Cline x1='65' y1='35' x2='65' y2='45' stroke='rgba(255,255,255,0.12)' stroke-width='1.2'/%3E%3Cline x1='115' y1='35' x2='115' y2='45' stroke='rgba(255,255,255,0.12)' stroke-width='1.2'/%3E%3Cline x1='65' y1='135' x2='65' y2='145' stroke='rgba(255,255,255,0.12)' stroke-width='1.2'/%3E%3Cline x1='115' y1='135' x2='115' y2='145' stroke='rgba(255,255,255,0.12)' stroke-width='1.2'/%3E%3C!-- Stumps Representation --%3E%3Ccircle cx='80' cy='38' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='90' cy='38' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='100' cy='38' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='80' cy='142' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='90' cy='142' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='100' cy='142' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3C!-- Dynamic Cricket Ball Seam Curved Arc --%3E%3Cpath d='M 0 180 Q 90 90 180 0' fill='none' stroke='rgba(255, 90, 31, 0.35)' stroke-width='2' stroke-dasharray='5,4'/%3E%3C/svg%3E"),
+            radial-gradient(ellipse 85% 85% at 50% 30%, transparent 35%, rgba(11, 12, 16, 0.75) 100%);
         }
 
         h1,
@@ -403,6 +469,32 @@
             text-transform: uppercase;
         }
 
+        /* Timeline Flowchart Cards (Progressive Sequence Animation System) */
+        .timeline-container-wrapper {
+            position: relative;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        .timeline-svg-connectors {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: visible;
+        }
+
+        .timeline-connector-line {
+            fill: none;
+            stroke: var(--primary-orange);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
         .timeline-section-title {
             text-align: center;
             margin-bottom: 32px;
@@ -410,8 +502,27 @@
 
         .timeline-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
+            grid-template-columns: 1fr;
+            gap: 32px 24px;
+            position: relative;
+            z-index: 3;
+        }
+
+        @media (min-width: 992px) {
+            .timeline-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px 32px;
+            }
+
+            .timeline-card[data-stage="4"] {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .timeline-card[data-stage="5"] {
+                grid-column: 2;
+                grid-row: 2;
+            }
         }
 
         .timeline-card {
@@ -420,6 +531,27 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             padding: 24px 20px;
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .timeline-card.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .timeline-card {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .timeline-connector-line {
+                stroke-dashoffset: 0 !important;
+                transition: none !important;
+            }
         }
 
         .timeline-num {
@@ -581,35 +713,97 @@
         .table-card-box {
             grid-column: span 12;
             background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            border: 1.5px solid var(--border-color);
+            border-top: 4px solid var(--primary-orange);
             border-radius: var(--radius-md);
             padding: 24px;
             overflow-x: auto;
+            position: relative;
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 90, 31, 0.1);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        [data-theme="dark"] .table-card-box {
+            box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.5), 0 0 24px rgba(255, 90, 31, 0.14);
+        }
+
+        .table-card-box::before {
+            content: '┌';
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            color: var(--primary-orange);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            opacity: 0.7;
+        }
+
+        .table-card-box::after {
+            content: '┐';
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            color: var(--primary-orange);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 700;
+            opacity: 0.7;
         }
 
         .eyantra-data-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             font-size: 14px;
-            margin-top: 16px;
+            margin-top: 8px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
         }
 
         .eyantra-data-table th {
             background: var(--bg-secondary);
-            color: var(--text-heading);
-            font-family: var(--font-heading);
+            color: var(--primary-orange);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             text-align: left;
-            padding: 12px 16px;
-            border-bottom: 2px solid var(--border-color);
+            padding: 14px 18px;
+            border-bottom: 2.5px solid var(--primary-orange);
         }
 
         .eyantra-data-table td {
-            padding: 12px 16px;
+            padding: 14px 18px;
             border-bottom: 1px solid var(--border-color);
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--text-body);
+            transition: all 0.18s ease;
+        }
+
+        .eyantra-data-table tbody tr {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .eyantra-data-table tbody tr:nth-child(even) {
+            background: var(--primary-orange-light);
         }
 
         .eyantra-data-table tbody tr:hover {
-            background: var(--primary-orange-light);
+            background: rgba(255, 90, 31, 0.14) !important;
+            transform: translateX(4px);
+        }
+
+        .eyantra-data-table tbody tr:hover td {
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        .eyantra-data-table tbody tr:first-child td {
+            font-weight: 700;
+            color: var(--primary-orange);
         }
 
         .eyantra-footer {
@@ -672,8 +866,162 @@
 </head>
 
 <body>
-    <!-- Engineering Grid Pattern Background -->
-    <div class="eyantra-grid-bg"></div>
+    <!-- Engineering Grid & Cricket Vector Watermarks Interactive Background -->
+    <div class="eyantra-grid-bg" id="bg-parallax-container">
+        <!-- Floating Cricket & Analytics Vector Watermarks -->
+        <div class="bg-figure figure-batsman" id="bg-fig-1">
+            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 60 160 L 90 120 L 80 80 L 100 50 L 120 70 L 110 110 L 140 160" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="105" cy="40" r="14" stroke="currentColor" stroke-width="2.5" stroke-dasharray="2 2"/>
+                <path d="M 120 70 L 165 40 L 175 48 L 130 78 Z" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M 30 140 Q 60 170 90 180" stroke="var(--primary-orange)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/>
+                <path d="M 140 30 Q 170 50 185 80" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <text x="20" y="192" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">01 // BATSMAN METRICS</text>
+            </svg>
+        </div>
+
+        <div class="bg-figure figure-trophy" id="bg-fig-2">
+            <svg width="240" height="240" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 60 40 L 140 40 L 130 110 Q 100 140 70 110 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M 60 50 C 40 50 30 70 45 90 C 55 100 63 95 65 90" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 140 50 C 160 50 170 70 155 90 C 145 100 137 95 135 90" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M 100 135 L 100 160 M 75 160 L 125 160 M 70 175 L 130 175" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="100" cy="75" r="16" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2"/>
+                <text x="25" y="195" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">02 // IPL CHAMPIONS</text>
+            </svg>
+        </div>
+
+        <div class="bg-figure figure-bowler" id="bg-fig-3">
+            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 50 150 L 75 100 L 70 65 L 100 35 L 125 60 L 140 110 L 160 150" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="155" cy="35" r="14" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <path d="M 144 30 Q 155 35 166 40" stroke="var(--primary-orange)" stroke-width="2" stroke-dasharray="2 2"/>
+                <path d="M 40 40 Q 100 20 155 35" stroke="var(--primary-orange)" stroke-width="1.8" stroke-dasharray="4 4"/>
+                <text x="20" y="190" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">03 // BOWLING INTELLIGENCE</text>
+            </svg>
+        </div>
+
+        <div class="bg-figure figure-drone" id="bg-fig-4">
+            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="70" y="70" width="60" height="40" rx="12" fill="none" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="100" cy="90" r="10" stroke="var(--primary-orange)" stroke-width="2"/>
+                <path d="M 70 75 L 40 45 M 130 75 L 160 45 M 70 105 L 40 135 M 130 105 L 160 135" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <ellipse cx="40" cy="45" rx="20" ry="6" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/>
+                <ellipse cx="160" cy="45" rx="20" ry="6" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/>
+                <ellipse cx="40" cy="135" rx="20" ry="6" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/>
+                <ellipse cx="160" cy="135" rx="20" ry="6" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/>
+                <text x="15" y="185" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">04 // AI QUERY ROUTER</text>
+            </svg>
+        </div>
+
+        <!-- Figure 5: Wicketkeeper & Stumps -->
+        <div class="bg-figure figure-keeper" id="bg-fig-5">
+            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 50 155 L 75 125 L 85 140 L 115 140 L 130 115 L 145 155" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="100" cy="95" r="14" stroke="currentColor" stroke-width="2.5"/>
+                <ellipse cx="65" cy="115" rx="10" ry="14" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2"/>
+                <ellipse cx="135" cy="115" rx="10" ry="14" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2"/>
+                <line x1="90" y1="130" x2="90" y2="175" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <line x1="100" y1="130" x2="100" y2="175" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <line x1="110" y1="130" x2="110" y2="175" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <line x1="86" y1="130" x2="114" y2="130" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <text x="15" y="195" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">05 // WICKETKEEPER STATS</text>
+            </svg>
+        </div>
+
+        <!-- Figure 6: Stadium Floodlight Arena -->
+        <div class="bg-figure figure-floodlight" id="bg-fig-6">
+            <svg width="230" height="230" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 85 180 L 95 40 L 105 40 L 115 180" stroke="currentColor" stroke-width="2.5"/>
+                <line x1="88" y1="120" x2="112" y2="120" stroke="currentColor" stroke-width="1.8"/>
+                <line x1="91" y1="80" x2="109" y2="80" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="70" y="20" width="60" height="25" rx="4" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2"/>
+                <circle cx="80" cy="32" r="4" fill="var(--primary-orange)"/>
+                <circle cx="93" cy="32" r="4" fill="var(--primary-orange)"/>
+                <circle cx="107" cy="32" r="4" fill="var(--primary-orange)"/>
+                <circle cx="120" cy="32" r="4" fill="var(--primary-orange)"/>
+                <path d="M 70 45 L 30 170 M 130 45 L 170 170" stroke="var(--primary-orange)" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <text x="18" y="195" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">06 // VENUE & STADIUM STATS</text>
+            </svg>
+        </div>
+
+        <!-- Figure 7: Hawkeye Wagon Wheel -->
+        <div class="bg-figure figure-wagonwheel" id="bg-fig-7">
+            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="95" r="70" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>
+                <circle cx="100" cy="95" r="45" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="100" cy="95" r="20" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2"/>
+                <line x1="100" y1="95" x2="160" y2="45" stroke="var(--primary-orange)" stroke-width="2"/>
+                <line x1="100" y1="95" x2="165" y2="115" stroke="var(--primary-orange)" stroke-width="2"/>
+                <line x1="100" y1="95" x2="115" y2="165" stroke="currentColor" stroke-width="1.8"/>
+                <line x1="100" y1="95" x2="40" y2="135" stroke="var(--primary-orange)" stroke-width="2"/>
+                <line x1="100" y1="95" x2="35" y2="65" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="160" cy="45" r="4" fill="var(--primary-orange)"/>
+                <circle cx="165" cy="115" r="4" fill="var(--primary-orange)"/>
+                <circle cx="40" cy="135" r="4" fill="var(--primary-orange)"/>
+                <text x="20" y="195" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">07 // HAWKEYE WAGON WHEEL</text>
+            </svg>
+        </div>
+
+        <!-- Figure 8: Helmet & Crossed Bats -->
+        <div class="bg-figure figure-helmet" id="bg-fig-8">
+            <svg width="210" height="210" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="160" x2="170" y2="40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <line x1="170" y1="160" x2="30" y2="40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 70 90 C 70 60 130 60 130 90 L 135 110 C 135 125 120 135 100 135 C 80 135 65 125 65 110 Z" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <path d="M 65 105 L 135 105 M 65 115 L 135 115 M 100 105 L 100 135" stroke="var(--primary-orange)" stroke-width="1.8"/>
+                <text x="15" y="190" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">08 // BOUNDARY & RECORDS</text>
+            </svg>
+        </div>
+
+        <!-- Figure 9: Ball Speed Radar -->
+        <div class="bg-figure figure-radar" id="bg-fig-9">
+            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="95" r="75" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+                <path d="M 25 95 L 175 95 M 100 20 L 100 170" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="100" cy="95" r="45" stroke="var(--primary-orange)" stroke-width="2"/>
+                <path d="M 100 95 L 155 40" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <circle cx="155" cy="40" r="5" fill="var(--primary-orange)"/>
+                <text x="12" y="195" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">09 // BALL SPEED RADAR</text>
+            </svg>
+        </div>
+
+        <!-- Figure 10: All-Rounder Metrics -->
+        <div class="bg-figure figure-allrounder" id="bg-fig-10">
+            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="50" y="50" width="100" height="100" rx="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>
+                <line x1="35" y1="165" x2="165" y2="35" stroke="var(--primary-orange)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="130" cy="130" r="18" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <path d="M 115 130 Q 130 138 145 130" stroke="var(--primary-orange)" stroke-width="2" stroke-dasharray="2 2"/>
+                <text x="14" y="195" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">10 // ALL-ROUNDER IMPACT</text>
+            </svg>
+        </div>
+
+        <!-- Figure 11: Hawkeye DRS Review -->
+        <div class="bg-figure figure-umpire" id="bg-fig-11">
+            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="30" y="30" width="140" height="90" rx="10" stroke="currentColor" stroke-width="2"/>
+                <line x1="75" y1="60" x2="75" y2="105" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <line x1="100" y1="60" x2="100" y2="105" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <line x1="125" y1="60" x2="125" y2="105" stroke="var(--primary-orange)" stroke-width="2.5"/>
+                <path d="M 40 140 Q 100 110 160 140" stroke="var(--primary-orange)" stroke-width="2" stroke-dasharray="4 4"/>
+                <text x="15" y="195" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">11 // HAWKEYE DRS REVIEW</text>
+            </svg>
+        </div>
+
+        <!-- Figure 12: Stadium Telemetry Grid -->
+        <div class="bg-figure figure-arena" id="bg-fig-12">
+            <svg width="230" height="230" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="100" cy="90" rx="80" ry="50" stroke="currentColor" stroke-width="2.5" stroke-dasharray="4 4"/>
+                <ellipse cx="100" cy="90" rx="55" ry="32" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="90" y="80" width="20" height="20" fill="var(--primary-orange-light)" stroke="var(--primary-orange)" stroke-width="2"/>
+                <circle cx="45" cy="65" r="4" fill="var(--primary-orange)"/>
+                <circle cx="155" cy="65" r="4" fill="var(--primary-orange)"/>
+                <circle cx="100" cy="140" r="4" fill="var(--primary-orange)"/>
+                <text x="12" y="195" font-family="Space Mono, monospace" font-size="11" fill="var(--primary-orange)" letter-spacing="2">12 // STADIUM TELEMETRY</text>
+            </svg>
+        </div>
+    </div>
 
     <!-- Top Sticky Header Bar (Screenshot 1 & 2 Inspiration) -->
     <header class="top-navbar">
@@ -695,9 +1043,8 @@
             </a>
 
             <div class="nav-links-right">
-                <a href="#hero" class="nav-item-link">About</a>
-                <a href="#explore" class="nav-item-link">Competition</a>
-                <a href="#trending" class="nav-item-link">Resources</a>
+                <a href="#about" class="nav-item-link">About</a>
+                <a href="https://www.kaggle.com/datasets/meruvakodandasuraj/ipl-complete-dataset-2008-2025-enhanced-edition" target="_blank" class="nav-item-link">Resources</a>
                 <button id="theme-btn" onclick="toggleTheme()" class="nav-item-link"
                     style="background:none; border:none; cursor:pointer;">🌓 Theme</button>
                 <a href="https://github.com/abhishekadbhute-create/IPL-Analytics" target="_blank"
@@ -710,7 +1057,7 @@
         <!-- Sub-Navbar Strip -->
         <div class="sub-navbar-strip">
             <div class="sub-navbar-container">
-                <span class="sub-nav-item" onclick="triggerPreset('all')">How it Works</span>
+                <span class="sub-nav-item" onclick="scrollToSection('timeline-section')">How it Works</span>
                 <span>|</span>
                 <span class="sub-nav-item" onclick="triggerPreset('top run scorers')">Batting Masters</span>
                 <span>|</span>
@@ -768,7 +1115,7 @@
         </section>
 
         <!-- Dark Achievements Section (Screenshot 1 Inspiration) -->
-        <section class="achievements-dark-card">
+        <section class="achievements-dark-card" id="achievements-section">
             <div class="achievements-header">
                 <span class="sub-tag" style="color: var(--primary-orange);">— OUR IPL STATISTICAL ACHIEVEMENTS —</span>
                 <h2 style="color: #ffffff; font-size: 36px; margin-top: 4px;">
@@ -778,26 +1125,26 @@
 
             <div class="achievements-grid">
                 <div>
-                    <div class="stat-num-giant">200,000<span>+</span></div>
+                    <div class="stat-num-giant" data-counter-target="200000" data-counter-suffix="+">0<span>+</span></div>
                     <div class="stat-label-sub">Deliveries Analyzed</div>
                 </div>
                 <div>
-                    <div class="stat-num-giant">1,000<span>+</span></div>
+                    <div class="stat-num-giant" data-counter-target="1000" data-counter-suffix="+">0<span>+</span></div>
                     <div class="stat-label-sub">Matches Cataloged</div>
                 </div>
                 <div>
-                    <div class="stat-num-giant">600<span>+</span></div>
+                    <div class="stat-num-giant" data-counter-target="600" data-counter-suffix="+">0<span>+</span></div>
                     <div class="stat-label-sub">IPL Players Tracked</div>
                 </div>
                 <div>
-                    <div class="stat-num-giant">17<span>+</span></div>
+                    <div class="stat-num-giant" data-counter-target="17" data-counter-suffix="+">0<span>+</span></div>
                     <div class="stat-label-sub">Franchises Evaluated</div>
                 </div>
             </div>
         </section>
 
         <!-- Timeline Section (Screenshot 3 Inspiration) -->
-        <section>
+        <section id="timeline-section">
             <div class="timeline-section-title">
                 <span class="sub-tag">— AI ANALYTICS WORKFLOW —</span>
                 <h2 style="font-size: 36px;">
@@ -805,36 +1152,51 @@
                 </h2>
             </div>
 
-            <div class="timeline-grid">
-                <div class="timeline-card">
-                    <div class="timeline-num">1</div>
-                    <span class="timeline-badge">STEP 1</span>
-                    <h4>User Query Received</h4>
-                    <p>Enter any natural language question or statistic query.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-num">2</div>
-                    <span class="timeline-badge" style="background:#f59e0b;">STEP 2</span>
-                    <h4>AI Function Routing</h4>
-                    <p>LLM matches the query to the appropriate Python function.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-num">3</div>
-                    <span class="timeline-badge" style="background:#10b981;">STEP 3</span>
-                    <h4>Pandas Data Filtering</h4>
-                    <p>Filters ball-by-ball datasets from 2008 to present.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-num">4</div>
-                    <span class="timeline-badge" style="background:#3b82f6;">STEP 4</span>
-                    <h4>Statistical Analysis & Table Generation</h4>
-                    <p>Computes strike rates, averages, and win ratios.</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-num">5</div>
-                    <span class="timeline-badge" style="background:#ef4444;">STEP 5</span>
-                    <h4>Visual Dashboard Output</h4>
-                    <p>Renders interactive Plotly charts & formatted data grids.</p>
+            <div class="timeline-container-wrapper">
+                <!-- Dynamic SVG Connecting Lines & Arrowheads -->
+                <svg class="timeline-svg-connectors" id="timeline-svg">
+                    <defs>
+                        <marker id="timeline-arrowhead" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--primary-orange)" />
+                        </marker>
+                    </defs>
+                    <path id="path-1-2" class="timeline-connector-line" marker-end="url(#timeline-arrowhead)" />
+                    <path id="path-2-3" class="timeline-connector-line" marker-end="url(#timeline-arrowhead)" />
+                    <path id="path-3-4" class="timeline-connector-line" marker-end="url(#timeline-arrowhead)" />
+                    <path id="path-4-5" class="timeline-connector-line" marker-end="url(#timeline-arrowhead)" />
+                </svg>
+
+                <div class="timeline-grid" id="timeline-grid">
+                    <div class="timeline-card" data-stage="1">
+                        <div class="timeline-num">1</div>
+                        <span class="timeline-badge">STEP 1</span>
+                        <h4>User Query Received</h4>
+                        <p>Enter any natural language question or statistic query.</p>
+                    </div>
+                    <div class="timeline-card" data-stage="2">
+                        <div class="timeline-num">2</div>
+                        <span class="timeline-badge" style="background:#f59e0b;">STEP 2</span>
+                        <h4>AI Function Routing</h4>
+                        <p>LLM matches the query to the appropriate Python function.</p>
+                    </div>
+                    <div class="timeline-card" data-stage="3">
+                        <div class="timeline-num">3</div>
+                        <span class="timeline-badge" style="background:#10b981;">STEP 3</span>
+                        <h4>Pandas Data Filtering</h4>
+                        <p>Filters ball-by-ball datasets from 2008 to present.</p>
+                    </div>
+                    <div class="timeline-card" data-stage="4">
+                        <div class="timeline-num">4</div>
+                        <span class="timeline-badge" style="background:#3b82f6;">STEP 4</span>
+                        <h4>Statistical Analysis & Table Generation</h4>
+                        <p>Computes strike rates, averages, and win ratios.</p>
+                    </div>
+                    <div class="timeline-card" data-stage="5">
+                        <div class="timeline-num">5</div>
+                        <span class="timeline-badge" style="background:#ef4444;">STEP 5</span>
+                        <h4>Visual Dashboard Output</h4>
+                        <p>Renders interactive Plotly charts & formatted data grids.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -886,6 +1248,26 @@
                     </div>
                 </div>
             </div>
+        <!-- About & Creator Section -->
+        <section id="about" class="about-author-section" style="margin-top: 60px; margin-bottom: 20px;">
+            <div class="achievements-dark-card" style="border: 1.5px solid var(--border-color); background: var(--bg-card); padding: 44px 32px; border-radius: var(--radius-md); position: relative; overflow: hidden; text-align: center;">
+                <div style="position: absolute; top: -30px; right: -30px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(255, 90, 31, 0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+                <div style="max-width: 820px; margin: 0 auto;">
+                    <span class="sub-tag" style="color: var(--primary-orange);">— ABOUT IPL ANALYTICS —</span>
+                    <h2 style="font-size: 34px; margin-top: 8px; margin-bottom: 16px;">
+                        Engineered for <span class="orange-underline">Cricket Intelligence</span>
+                    </h2>
+                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 28px;">
+                        IPL Analytics is a high-performance cricket data engine and natural language AI platform. Built with real-time ball-by-ball datasets from 2008 to present, it enables fans, analysts, and researchers to query over 200,000+ deliveries, player head-to-heads, venue pitch dynamics, and historical IPL records instantly.
+                    </p>
+                    <div style="display: inline-flex; align-items: center; gap: 12px; background: var(--primary-orange-light); border: 1.5px solid var(--primary-orange); padding: 12px 28px; border-radius: var(--radius-pill);">
+                        <span style="font-size: 20px;">👨‍💻</span>
+                        <span style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--text-heading); letter-spacing: 0.5px;">
+                            Designed & Engineered by <span style="color: var(--primary-orange); text-transform: uppercase;">ABHISHEK ADBHUTE</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </div>
@@ -899,12 +1281,13 @@
             </div>
             <div>
                 <a href="#hero">Home</a>
-                <a href="#explore">Explore</a>
+                <a href="#about">About</a>
+                <a href="https://www.kaggle.com/datasets/meruvakodandasuraj/ipl-complete-dataset-2008-2025-enhanced-edition" target="_blank">Resources</a>
                 <a href="https://github.com/abhishekadbhute-create/IPL-Analytics" target="_blank">GitHub</a>
             </div>
         </div>
         <div class="footer-sub">
-            Made with ❤️ for Cricket Analytics
+            Made with ❤️ for Cricket Analytics | Created by <strong>ABHISHEK ADBHUTE</strong>
         </div>
     </footer>
 
@@ -916,6 +1299,11 @@
         const loadStepTitle = document.getElementById('load-step-title');
         const loadStepSub = document.getElementById('load-step-sub');
         const loadProgressFill = document.getElementById('load-progress-fill');
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
 
         function toggleTheme() {
             const html = document.documentElement;
@@ -1072,7 +1460,307 @@
             html += `</div>`;
             return html;
         }
+
+        // INTERACTIVE MOUSE-MOVE & SCROLL PARALLAX CONTROLLER
+        document.addEventListener('DOMContentLoaded', function () {
+            let mouseX = 0, mouseY = 0;
+            let targetX = 0, targetY = 0;
+
+            const bgContainer = document.getElementById('bg-parallax-container');
+            const fig1 = document.getElementById('bg-fig-1');
+            const fig2 = document.getElementById('bg-fig-2');
+            const fig3 = document.getElementById('bg-fig-3');
+            const fig4 = document.getElementById('bg-fig-4');
+            const fig5 = document.getElementById('bg-fig-5');
+            const fig6 = document.getElementById('bg-fig-6');
+            const fig7 = document.getElementById('bg-fig-7');
+            const fig8 = document.getElementById('bg-fig-8');
+            const fig9 = document.getElementById('bg-fig-9');
+            const fig10 = document.getElementById('bg-fig-10');
+            const fig11 = document.getElementById('bg-fig-11');
+            const fig12 = document.getElementById('bg-fig-12');
+
+            window.addEventListener('mousemove', function (e) {
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+                mouseX = (e.clientX / windowWidth - 0.5) * 2;
+                mouseY = (e.clientY / windowHeight - 0.5) * 2;
+            });
+
+            function animate() {
+                const scrollY = window.scrollY || window.pageYOffset || 0;
+
+                // Smooth spring interpolation (lerp)
+                targetX += (mouseX - targetX) * 0.06;
+                targetY += (mouseY - targetY) * 0.06;
+
+                if (bgContainer) {
+                    bgContainer.style.transform = `translate3d(${targetX * 10}px, ${targetY * 10}px, 0)`;
+                }
+
+                if (fig1) fig1.style.transform = `translate3d(${targetX * 35}px, ${targetY * 35 + scrollY * -0.15}px, 0) rotate(${targetX * 4}deg)`;
+                if (fig5) fig5.style.transform = `translate3d(${targetX * -25}px, ${targetY * -25 + scrollY * -0.12}px, 0) rotate(${targetX * -3}deg)`;
+                if (fig2) fig2.style.transform = `translate3d(${targetX * -30}px, ${targetY * -30 + scrollY * -0.1}px, 0) rotate(${targetX * -2}deg)`;
+                if (fig6) fig6.style.transform = `translate3d(${targetX * 38}px, ${targetY * 38 + scrollY * -0.16}px, 0) rotate(${targetX * 4}deg)`;
+                if (fig3) fig3.style.transform = `translate3d(${targetX * 40}px, ${targetY * 40 + scrollY * -0.18}px, 0) rotate(${targetX * 5}deg)`;
+                if (fig7) fig7.style.transform = `translate3d(${targetX * -32}px, ${targetY * -32 + scrollY * -0.11}px, 0) rotate(${targetX * -4}deg)`;
+                if (fig4) fig4.style.transform = `translate3d(${targetX * -35}px, ${targetY * -35 + scrollY * -0.13}px, 0)`;
+                if (fig8) fig8.style.transform = `translate3d(${targetX * 36}px, ${targetY * 36 + scrollY * -0.17}px, 0) rotate(${targetX * 3}deg)`;
+                if (fig9) fig9.style.transform = `translate3d(${targetX * -28}px, ${targetY * -28 + scrollY * -0.12}px, 0) rotate(${targetX * -3}deg)`;
+                if (fig10) fig10.style.transform = `translate3d(${targetX * 34}px, ${targetY * 34 + scrollY * -0.15}px, 0) rotate(${targetX * 4}deg)`;
+                if (fig11) fig11.style.transform = `translate3d(${targetX * -30}px, ${targetY * -30 + scrollY * -0.11}px, 0) rotate(${targetX * -2}deg)`;
+                if (fig12) fig12.style.transform = `translate3d(${targetX * 36}px, ${targetY * 36 + scrollY * -0.16}px, 0) rotate(${targetX * 3}deg)`;
+
+                requestAnimationFrame(animate);
+            }
+
+            requestAnimationFrame(animate);
+        });
+
+        // =========================================================
+        // REFERENCE 1: REUSABLE VIEWPORT NUMERICAL COUNT-UP SYSTEM
+        // =========================================================
+        function formatNumberWithCommas(num) {
+            return Math.floor(num).toLocaleString('en-US');
+        }
+
+        function animateCounter(element, duration = 1800) {
+            const target = parseInt(element.getAttribute('data-counter-target') || '0', 10);
+            const suffix = element.getAttribute('data-counter-suffix') || '+';
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                element.innerHTML = `${formatNumberWithCommas(target)}<span>${suffix}</span>`;
+                return;
+            }
+
+            let startTime = null;
+            const startValue = 0;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                // Cubic ease-out for smooth decelerating count-up
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                const currentValue = startValue + (target - startValue) * easeProgress;
+
+                element.innerHTML = `${formatNumberWithCommas(currentValue)}<span>${suffix}</span>`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    element.innerHTML = `${formatNumberWithCommas(target)}<span>${suffix}</span>`;
+                }
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        function initCounterObserver() {
+            const section = document.getElementById('achievements-section');
+            if (!section) return;
+
+            let hasAnimated = false;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasAnimated) {
+                        hasAnimated = true;
+                        const counters = section.querySelectorAll('.stat-num-giant[data-counter-target]');
+                        counters.forEach((counter, idx) => {
+                            setTimeout(() => {
+                                animateCounter(counter, 1800);
+                            }, idx * 120);
+                        });
+                        observer.unobserve(section);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            observer.observe(section);
+        }
+
+        // =========================================================
+        // REFERENCE 2: FLOWCHART / TIMELINE PROGRESSIVE REVEAL SYSTEM
+        // =========================================================
+        function updateTimelinePaths() {
+            const svg = document.getElementById('timeline-svg');
+            const container = document.getElementById('timeline-grid');
+            if (!svg || !container) return;
+
+            const cards = Array.from(container.querySelectorAll('.timeline-card'));
+            if (cards.length < 5) return;
+
+            const containerRect = container.getBoundingClientRect();
+            svg.setAttribute('width', containerRect.width);
+            svg.setAttribute('height', containerRect.height);
+
+            function getCardEdge(card, side) {
+                const r = card.getBoundingClientRect();
+                const left = r.left - containerRect.left;
+                const top = r.top - containerRect.top;
+                const width = r.width;
+                const height = r.height;
+
+                switch (side) {
+                    case 'right': return { x: left + width, y: top + height / 2 };
+                    case 'left': return { x: left, y: top + height / 2 };
+                    case 'bottom': return { x: left + width / 2, y: top + height };
+                    case 'top': return { x: left + width / 2, y: top };
+                    default: return { x: left + width / 2, y: top + height / 2 };
+                }
+            }
+
+            const isDesktop = window.innerWidth >= 992;
+            let pathData = [];
+
+            if (isDesktop) {
+                // Desktop 2-Row Flow: [1] -> [2] -> [3] -> (downward) -> [4] -> [5]
+                const p1_out = getCardEdge(cards[0], 'right');
+                const p2_in = getCardEdge(cards[1], 'left');
+                const p2_out = getCardEdge(cards[1], 'right');
+                const p3_in = getCardEdge(cards[2], 'left');
+                const p3_out = getCardEdge(cards[2], 'bottom');
+                const p4_in = getCardEdge(cards[3], 'top');
+                const p4_out = getCardEdge(cards[3], 'right');
+                const p5_in = getCardEdge(cards[4], 'left');
+
+                pathData.push({ id: 'path-1-2', d: `M ${p1_out.x} ${p1_out.y} L ${p2_in.x} ${p2_in.y}` });
+                pathData.push({ id: 'path-2-3', d: `M ${p2_out.x} ${p2_out.y} L ${p3_in.x} ${p3_in.y}` });
+
+                // Downward Bezier Curve from Stage 3 to Stage 4
+                const midY = (p3_out.y + p4_in.y) / 2;
+                pathData.push({ id: 'path-3-4', d: `M ${p3_out.x} ${p3_out.y} C ${p3_out.x} ${midY}, ${p4_in.x} ${midY}, ${p4_in.x} ${p4_in.y}` });
+                pathData.push({ id: 'path-4-5', d: `M ${p4_out.x} ${p4_out.y} L ${p5_in.x} ${p5_in.y}` });
+            } else {
+                // Mobile Vertical Flow: 1 -> 2 -> 3 -> 4 -> 5
+                for (let i = 0; i < 4; i++) {
+                    const start = getCardEdge(cards[i], 'bottom');
+                    const end = getCardEdge(cards[i + 1], 'top');
+                    pathData.push({ id: `path-${i + 1}-${i + 2}`, d: `M ${start.x} ${start.y} L ${end.x} ${end.y}` });
+                }
+            }
+
+            pathData.forEach(p => {
+                const pathEl = document.getElementById(p.id);
+                if (pathEl) {
+                    pathEl.setAttribute('d', p.d);
+                    const totalLen = pathEl.getTotalLength();
+                    pathEl.style.strokeDasharray = totalLen;
+                    if (!pathEl.dataset.drawn) {
+                        pathEl.style.strokeDashoffset = totalLen;
+                    }
+                }
+            });
+        }
+
+        function drawPath(pathId, duration = 400) {
+            return new Promise(resolve => {
+                const pathEl = document.getElementById(pathId);
+                if (!pathEl) { resolve(); return; }
+
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    pathEl.style.strokeDashoffset = '0';
+                    pathEl.dataset.drawn = 'true';
+                    resolve();
+                    return;
+                }
+
+                const totalLen = pathEl.getTotalLength();
+                pathEl.style.strokeDasharray = totalLen;
+
+                let startTime = null;
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    const easeProgress = 1 - Math.pow(1 - progress, 2);
+                    pathEl.style.strokeDashoffset = totalLen * (1 - easeProgress);
+
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        pathEl.style.strokeDashoffset = '0';
+                        pathEl.dataset.drawn = 'true';
+                        resolve();
+                    }
+                }
+
+                requestAnimationFrame(step);
+            });
+        }
+
+        function revealTimelineCard(cardEl) {
+            if (cardEl) {
+                cardEl.classList.add('revealed');
+            }
+        }
+
+        async function runTimelineSequence() {
+            const container = document.getElementById('timeline-grid');
+            if (!container) return;
+            const cards = [
+                container.querySelector('.timeline-card[data-stage="1"]'),
+                container.querySelector('.timeline-card[data-stage="2"]'),
+                container.querySelector('.timeline-card[data-stage="3"]'),
+                container.querySelector('.timeline-card[data-stage="4"]'),
+                container.querySelector('.timeline-card[data-stage="5"]')
+            ];
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                cards.forEach(c => revealTimelineCard(c));
+                ['path-1-2', 'path-2-3', 'path-3-4', 'path-4-5'].forEach(pId => {
+                    const p = document.getElementById(pId);
+                    if (p) { p.style.strokeDashoffset = '0'; p.dataset.drawn = 'true'; }
+                });
+                return;
+            }
+
+            // Sequence Execution: 1 -> Connector -> 2 -> Connector -> 3 -> Downward Connector -> 4 -> Connector -> 5
+            revealTimelineCard(cards[0]);
+            await new Promise(r => setTimeout(r, 250));
+
+            await drawPath('path-1-2', 380);
+            revealTimelineCard(cards[1]);
+            await new Promise(r => setTimeout(r, 250));
+
+            await drawPath('path-2-3', 380);
+            revealTimelineCard(cards[2]);
+            await new Promise(r => setTimeout(r, 250));
+
+            await drawPath('path-3-4', 450);
+            revealTimelineCard(cards[3]);
+            await new Promise(r => setTimeout(r, 250));
+
+            await drawPath('path-4-5', 380);
+            revealTimelineCard(cards[4]);
+        }
+
+        function initTimelineObserver() {
+            const section = document.getElementById('timeline-section');
+            if (!section) return;
+
+            let hasRun = false;
+
+            window.addEventListener('resize', updateTimelinePaths);
+            updateTimelinePaths();
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasRun) {
+                        hasRun = true;
+                        runTimelineSequence();
+                        observer.unobserve(section);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            observer.observe(section);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initCounterObserver();
+            initTimelineObserver();
+        });
     </script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

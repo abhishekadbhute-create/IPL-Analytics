@@ -58,16 +58,155 @@ body {
     overflow-x: hidden;
 }
 
-/* e-Yantra Grid Background */
+/* ==========================================================================
+   PREMIUM IPL STADIUM & AI DATA ANALYTICS CANVAS BACKGROUND SYSTEM
+   ========================================================================== */
+
+@keyframes stadiumGlowPulse {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.85; }
+    50% { transform: translate(-20px, 15px) scale(1.08); opacity: 1; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.85; }
+}
+
+@keyframes stadiumGlowPulseTwo {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+    50% { transform: translate(25px, -20px) scale(1.1); opacity: 1; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+}
+
 .eyantra-grid-bg {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background-image: 
-        linear-gradient(to right, rgba(0,0,0,0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.035) 1px, transparent 1px);
-    background-size: 32px 32px;
     pointer-events: none;
+    overflow: hidden;
+    background-color: var(--bg-canvas);
+}
+
+/* Layer 1: Glowing Ambient Stadium Orbs & Floodlight Arena */
+.eyantra-grid-bg::before {
+    content: "";
+    position: absolute;
+    inset: -100px;
+    background-image:
+        /* IPL Blaze Orange Arena Spotlight */
+        radial-gradient(circle 650px at 82% 12%, rgba(255, 90, 31, 0.15), transparent 70%),
+        /* Golden Trophy Floodlight Aura */
+        radial-gradient(circle 550px at 18% 18%, rgba(255, 184, 0, 0.12), transparent 65%),
+        /* Stadium Outfield Emerald Turf Glow */
+        radial-gradient(circle 750px at 50% 85%, rgba(16, 185, 129, 0.08), transparent 70%),
+        /* Stadium Night Sky Glow (Center spotlight) */
+        radial-gradient(ellipse 90% 70% at 50% 30%, rgba(99, 102, 241, 0.04), transparent 75%);
+    animation: stadiumGlowPulse 18s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+/* Layer 2: High-Definition Cricket & Technical Grid Pattern */
+.eyantra-grid-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        /* Premium Cricket Pitch, Seam Stitch & Data Grid Vector Pattern */
+        url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Technical Grid --%3E%3Cpath d='M 180 0 L 0 0 0 180' fill='none' stroke='rgba(0,0,0,0.06)' stroke-width='1.2'/%3E%3Cpath d='M 45 0 L 45 180 M 90 0 L 90 180 M 135 0 L 135 180' fill='none' stroke='rgba(0,0,0,0.025)' stroke-width='1'/%3E%3Cpath d='M 0 45 L 180 45 M 0 90 L 180 90 M 0 135 L 180 135' fill='none' stroke='rgba(0,0,0,0.025)' stroke-width='1'/%3E%3C!-- Grid Node Crosshairs (+) --%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.25)' stroke-width='1.2' transform='translate(0,0)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.25)' stroke-width='1.2' transform='translate(180,0)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.25)' stroke-width='1.2' transform='translate(0,180)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.25)' stroke-width='1.2' transform='translate(180,180)'/%3E%3C!-- Cricket 22-Yard Pitch Box %26 Crease Lines --%3E%3Crect x='50' y='20' width='80' height='140' rx='4' fill='rgba(255,90,31,0.015)' stroke='rgba(0,0,0,0.07)' stroke-width='1.2'/%3E%3Cline x1='50' y1='45' x2='130' y2='45' stroke='rgba(255,90,31,0.3)' stroke-width='1.5'/%3E%3Cline x1='50' y1='135' x2='130' y2='135' stroke='rgba(255,90,31,0.3)' stroke-width='1.5'/%3E%3Cline x1='65' y1='35' x2='65' y2='45' stroke='rgba(0,0,0,0.08)' stroke-width='1.2'/%3E%3Cline x1='115' y1='35' x2='115' y2='45' stroke='rgba(0,0,0,0.08)' stroke-width='1.2'/%3E%3Cline x1='65' y1='135' x2='65' y2='145' stroke='rgba(0,0,0,0.08)' stroke-width='1.2'/%3E%3Cline x1='115' y1='135' x2='115' y2='145' stroke='rgba(0,0,0,0.08)' stroke-width='1.2'/%3E%3C!-- Stumps Representation --%3E%3Ccircle cx='80' cy='38' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='90' cy='38' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='100' cy='38' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='80' cy='142' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='90' cy='142' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3Ccircle cx='100' cy='142' r='1.5' fill='rgba(255,90,31,0.5)'/%3E%3C!-- Dynamic Cricket Ball Seam Curved Arc --%3E%3Cpath d='M 0 180 Q 90 90 180 0' fill='none' stroke='rgba(255, 90, 31, 0.18)' stroke-width='2' stroke-dasharray='5,4'/%3E%3C/svg%3E"),
+        /* Vignette depth */
+        radial-gradient(ellipse 85% 85% at 50% 30%, transparent 40%, rgba(245, 243, 238, 0.6) 100%);
+    background-size: 180px 180px, 100% 100%;
+    pointer-events: none;
+}
+
+/* Dark Theme Premium Stadium Canvas */
+[data-theme="dark"] .eyantra-grid-bg::before {
+    background-image:
+        /* IPL Blaze Orange Arena Glow */
+        radial-gradient(circle 650px at 82% 12%, rgba(255, 90, 31, 0.22), transparent 70%),
+        /* Golden Floodlight Aura */
+        radial-gradient(circle 550px at 18% 18%, rgba(255, 184, 0, 0.16), transparent 65%),
+        /* Stadium Outfield Emerald Turf Glow */
+        radial-gradient(circle 750px at 50% 85%, rgba(16, 185, 129, 0.14), transparent 70%),
+        /* Deep Electric Cyber Glow */
+        radial-gradient(ellipse 90% 70% at 50% 30%, rgba(99, 102, 241, 0.08), transparent 75%);
+    animation: stadiumGlowPulseTwo 20s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .eyantra-grid-bg::after {
+    background-image:
+        url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Technical Grid --%3E%3Cpath d='M 180 0 L 0 0 0 180' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1.2'/%3E%3Cpath d='M 45 0 L 45 180 M 90 0 L 90 180 M 135 0 L 135 180' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1'/%3E%3Cpath d='M 0 45 L 180 45 M 0 90 L 180 90 M 0 135 L 180 135' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1'/%3E%3C!-- Grid Node Crosshairs (+) --%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.45)' stroke-width='1.2' transform='translate(0,0)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.45)' stroke-width='1.2' transform='translate(180,0)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.45)' stroke-width='1.2' transform='translate(0,180)'/%3E%3Cpath d='M -4 0 L 4 0 M 0 -4 L 0 4' stroke='rgba(255,90,31,0.45)' stroke-width='1.2' transform='translate(180,180)'/%3E%3C!-- Cricket 22-Yard Pitch Box %26 Crease Lines --%3E%3Crect x='50' y='20' width='80' height='140' rx='4' fill='rgba(255,90,31,0.03)' stroke='rgba(255,255,255,0.1)' stroke-width='1.2'/%3E%3Cline x1='50' y1='45' x2='130' y2='45' stroke='rgba(255,90,31,0.5)' stroke-width='1.5'/%3E%3Cline x1='50' y1='135' x2='130' y2='135' stroke='rgba(255,90,31,0.5)' stroke-width='1.5'/%3E%3Cline x1='65' y1='35' x2='65' y2='45' stroke='rgba(255,255,255,0.12)' stroke-width='1.2'/%3E%3Cline x1='115' y1='35' x2='115' y2='45' stroke='rgba(255,255,255,0.12)' stroke-width='1.2'/%3E%3Cline x1='65' y1='135' x2='65' y2='145' stroke='rgba(255,255,255,0.12)' stroke-width='1.2'/%3E%3Cline x1='115' y1='135' x2='115' y2='145' stroke='rgba(255,255,255,0.12)' stroke-width='1.2'/%3E%3C!-- Stumps Representation --%3E%3Ccircle cx='80' cy='38' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='90' cy='38' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='100' cy='38' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='80' cy='142' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='90' cy='142' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3Ccircle cx='100' cy='142' r='1.5' fill='rgba(255,90,31,0.8)'/%3E%3C!-- Dynamic Cricket Ball Seam Curved Arc --%3E%3Cpath d='M 0 180 Q 90 90 180 0' fill='none' stroke='rgba(255, 90, 31, 0.35)' stroke-width='2' stroke-dasharray='5,4'/%3E%3C/svg%3E"),
+        radial-gradient(ellipse 85% 85% at 50% 30%, transparent 35%, rgba(11, 12, 16, 0.75) 100%);
+}
+
+/* Floating Watermark Technical Vector Figures */
+.bg-figure {
+    position: absolute;
+    color: rgba(30, 27, 24, 0.16);
+    pointer-events: none;
+    transition: transform 0.12s cubic-bezier(0.1, 0.9, 0.2, 1);
+    will-change: transform;
+    user-select: none;
+}
+
+[data-theme="dark"] .bg-figure {
+    color: rgba(255, 255, 255, 0.18);
+}
+
+.figure-batsman {
+    top: 140px;
+    right: 3%;
+}
+
+.figure-keeper {
+    top: 420px;
+    left: 3%;
+}
+
+.figure-trophy {
+    top: 820px;
+    left: 2%;
+}
+
+.figure-floodlight {
+    top: 1220px;
+    right: 3%;
+}
+
+.figure-bowler {
+    top: 1620px;
+    right: 4%;
+}
+
+.figure-wagonwheel {
+    top: 2020px;
+    left: 3%;
+}
+
+.figure-drone {
+    top: 2420px;
+    left: 2%;
+}
+
+.figure-helmet {
+    top: 2820px;
+    right: 3%;
+}
+
+.figure-radar {
+    top: 3220px;
+    left: 2.5%;
+}
+
+.figure-allrounder {
+    top: 3620px;
+    right: 3%;
+}
+
+.figure-umpire {
+    top: 4020px;
+    left: 3%;
+}
+
+.figure-arena {
+    top: 4420px;
+    right: 2.5%;
 }
 
 /* Typography & Highlights */
@@ -369,7 +508,32 @@ h1, h2, h3, h4, h5 {
     text-transform: uppercase;
 }
 
-/* Timeline Flowchart Cards (Screenshot 3 Inspiration) */
+/* Timeline Flowchart Cards (Progressive Sequence Animation System) */
+.timeline-container-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.timeline-svg-connectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    overflow: visible;
+}
+
+.timeline-connector-line {
+    fill: none;
+    stroke: var(--primary-orange);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 .timeline-section-title {
     text-align: center;
     margin-bottom: 32px;
@@ -377,8 +541,27 @@ h1, h2, h3, h4, h5 {
 
 .timeline-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 32px 24px;
+    position: relative;
+    z-index: 3;
+}
+
+@media (min-width: 992px) {
+    .timeline-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 32px;
+    }
+
+    .timeline-card[data-stage="4"] {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .timeline-card[data-stage="5"] {
+        grid-column: 2;
+        grid-row: 2;
+    }
 }
 
 .timeline-card {
@@ -387,6 +570,27 @@ h1, h2, h3, h4, h5 {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 24px 20px;
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.timeline-card.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .timeline-card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .timeline-connector-line {
+        stroke-dashoffset: 0 !important;
+        transition: none !important;
+    }
 }
 
 .timeline-num {
@@ -527,15 +731,42 @@ h1, h2, h3, h4, h5 {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-left: 4px solid var(--primary-orange);
+/* ==========================================================================
+   POP-OUT ANALYTICS OUTPUT TABLE & RESULT CARD SYSTEM
+   ========================================================================== */
+
+.results-wrapper {
+    animation: resultPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes resultPopIn {
+    0% { opacity: 0; transform: translateY(24px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.stat-card-box {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-color);
+    border-top: 3px solid var(--primary-orange);
     border-radius: var(--radius-md);
     padding: 20px;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card-box:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-orange);
 }
 
 .stat-card-title {
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--text-muted);
+    color: var(--primary-orange);
     text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 .stat-card-val {
@@ -543,40 +774,103 @@ h1, h2, h3, h4, h5 {
     font-size: 32px;
     font-weight: 700;
     color: var(--text-heading);
+    margin-top: 4px;
 }
 
 .table-card-box {
     grid-column: span 12;
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color);
+    border-top: 4px solid var(--primary-orange);
     border-radius: var(--radius-md);
     padding: 24px;
     overflow-x: auto;
+    position: relative;
+    box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 90, 31, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-theme="dark"] .table-card-box {
+    box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.5), 0 0 24px rgba(255, 90, 31, 0.14);
+}
+
+.table-card-box::before {
+    content: '┌';
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    color: var(--primary-orange);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.7;
+}
+
+.table-card-box::after {
+    content: '┐';
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    color: var(--primary-orange);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.7;
 }
 
 .eyantra-data-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     font-size: 14px;
-    margin-top: 16px;
+    margin-top: 8px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
 }
 
 .eyantra-data-table th {
     background: var(--bg-secondary);
-    color: var(--text-heading);
-    font-family: var(--font-heading);
+    color: var(--primary-orange);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     text-align: left;
-    padding: 12px 16px;
-    border-bottom: 2px solid var(--border-color);
+    padding: 14px 18px;
+    border-bottom: 2.5px solid var(--primary-orange);
 }
 
 .eyantra-data-table td {
-    padding: 12px 16px;
+    padding: 14px 18px;
     border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-body);
+    transition: all 0.18s ease;
+}
+
+.eyantra-data-table tbody tr {
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eyantra-data-table tbody tr:nth-child(even) {
+    background: var(--primary-orange-light);
 }
 
 .eyantra-data-table tbody tr:hover {
-    background: var(--primary-orange-light);
+    background: rgba(255, 90, 31, 0.14) !important;
+    transform: translateX(4px);
+}
+
+.eyantra-data-table tbody tr:hover td {
+    color: var(--text-heading);
+    font-weight: 600;
+}
+
+.eyantra-data-table tbody tr:first-child td {
+    font-weight: 700;
+    color: var(--primary-orange);
 }
 
 /* Footer */
